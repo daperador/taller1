@@ -1,0 +1,46 @@
+[module formulariohtml('http://www.eclipse.org/uml2/4.0.0/UML')/]
+
+[template public generate(c : Class)]
+[comment @main/]
+[file (c.name+'.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html">
+    <head>
+        <title>Formulario [c.name/]</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        
+        <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+    </head>
+    <body>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Formulario [c.name/]</div>
+			<div class="panel-body">
+				[c.attribute.definicionCampo()/] 
+			</div>
+		</div>
+    </body>
+</html>
+
+[/file]
+[/template]
+
+[template public definicionCampo(a : Property)]
+<div class="row">
+    <div class="form-group col-md-6">
+        <label for="[a.name/]">[a.name/]</label>
+[if(a.type.name.equalsIgnoreCase('Boolean'))]
+		<input id="[a.name/]" 
+			   type="checkbox"
+                           class="form-control" />
+[else]
+        <input id="[a.name/]" 
+               class="form-control" 
+			   type="text"
+			   placeholder="[a.name/]"/>
+[/if]
+    </div>
+</div>
+
+[/template]
