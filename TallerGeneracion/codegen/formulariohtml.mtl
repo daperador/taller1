@@ -27,20 +27,18 @@
 [/template]
 
 [template public definicionCampo(a : Property)]
-<div class="row">
-    <div class="form-group col-md-6">
-        <label for="[a.name/]">[a.name/]</label>
+<div class="form-group col-md-6">
+    <label for="[a.name/]">[a.name/]</label>
 [if(a.type.name.equalsIgnoreCase('Boolean'))]
-		<input id="[a.name/]" 
-			   type="checkbox"
-                           class="form-control" />
+	<input id="[a.name/]" 
+		   type="checkbox"
+           class="form-control" />
 [else]
-        <input id="[a.name/]" 
-               class="form-control" 
-			   type="text"
-			   placeholder="[a.name/]"/>
+    <input id="[a.name/]" 
+           class="form-control" 
+		   type="text"
+		   placeholder="[a.name/]"/>
 [/if]
-    </div>
 </div>
 
 [/template]
